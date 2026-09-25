@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Help & Support · Courtsy</title>
+  <meta name="description" content="Get help with a booking, your court, your account or anything else on Courtsy.">
+  <link rel="icon" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header><a class="brand" href="/"><img src="wordmark.png" alt="Courtsy"></a></header>
+
+    <main class="doc">
+      <h1>How can we help?</h1>
+      <p class="updated">Choose what it’s about and we’ll ask for the right details. Using the app? Account → Help &amp; support attaches your booking for you.</p>
+
+      <form id="support" class="support" novalidate>
+        <fieldset class="topics">
+          <legend>What’s it about?</legend>
+          <!-- filled in by support.js -->
+        </fieldset>
+
+        <div id="details" hidden>
+          <p id="safety" class="notice" hidden>If anyone is in danger right now, call 999 first.</p>
+
+          <label for="message">What’s going on?</label>
+          <div id="prompts" class="prompts"></div>
+          <textarea id="message" name="message" rows="7" maxlength="4000" required></textarea>
+
+          <div class="pair">
+            <div>
+              <label for="email">Your email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@email.com">
+              <small>The one you use for Courtsy, so we can find your account. We’ll reply here.</small>
+            </div>
+            <div>
+              <label for="name">Your name <span class="optional">(optional)</span></label>
+              <input id="name" name="name" type="text" autocomplete="name" maxlength="100">
+            </div>
+          </div>
+
+          <!-- Leave this empty: it catches bots. -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <p id="error" class="error" role="alert" hidden></p>
+          <button type="submit" id="send">Send</button>
+          <p class="fine">We usually reply within 2 working days. See our <a href="privacy.html">privacy policy</a>.</p>
+        </div>
+      </form>
+
+      <section id="sent" class="sent" hidden>
+        <div class="tick" aria-hidden="true">✓</div>
+        <h2>Thanks — we’ve got it.</h2>
+        <p>We’ll reply to <strong id="sent-email"></strong>, usually within 2 working days.</p>
+      </section>
+    </main>
+
+    <footer>
+      <nav>
+        <a href="support.html">Help &amp; support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="delete-account.html">Delete your account</a>
+      </nav>
+      Courtsy · Kuala Lumpur, Malaysia
+    </footer>
+  </div>
+  <script src="support.js"></script>
+</body>
+</html>

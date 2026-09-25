@@ -16,8 +16,8 @@ body {
 a { color: var(--navy); }
 .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
 header { padding: 28px 0; }
-.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--navy); font-weight: 800; font-size: 26px; letter-spacing: -0.5px; }
-.brand img { width: 32px; height: 32px; }
+.brand { display: inline-block; line-height: 0; }
+.brand img { height: 44px; width: auto; }
 .hero { padding: 72px 0 56px; }
 .hero h1 { font-size: clamp(40px, 9vw, 68px); line-height: 1.02; letter-spacing: -2px; margin: 0 0 20px; color: var(--navy); }
 .hero p { font-size: 20px; color: var(--muted); max-width: 540px; margin: 0; }
@@ -33,3 +33,33 @@ header { padding: 28px 0; }
 footer { border-top: 1px solid var(--line); padding: 26px 0 40px; color: var(--muted); font-size: 14.5px; }
 footer nav { display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 8px; }
 footer a { color: var(--muted); }
+
+/* Support form */
+.support fieldset { border: 0; padding: 0; margin: 0 0 24px; }
+.support legend, .support label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+.topics { display: grid; gap: 8px; }
+.topic { display: flex !important; align-items: center; gap: 14px; background: #fff; border: 2px solid transparent; border-radius: 16px; padding: 14px 16px; cursor: pointer; margin: 0 !important; }
+.topic:has(input:checked) { border-color: var(--navy); }
+.topic input { accent-color: var(--navy); width: 18px; height: 18px; flex: none; margin: 0; }
+.topic strong { display: block; font-size: 16px; }
+.topic small { display: block; color: var(--muted); font-weight: 400; font-size: 14px; }
+.prompts { color: var(--muted); font-size: 15px; margin: -2px 0 8px; }
+.prompts p { margin: 0; }
+.prompts ul { margin: 2px 0 0; padding-left: 20px; }
+.support textarea, .support input[type="email"], .support input[type="text"] {
+  width: 100%; font: inherit; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
+}
+.support textarea { resize: vertical; min-height: 150px; }
+.support textarea:focus, .support input:focus { outline: 2px solid var(--navy); outline-offset: 1px; border-color: transparent; }
+.support small { display: block; color: var(--muted); font-size: 13.5px; margin-top: 6px; font-weight: 400; }
+.pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 20px; }
+.optional { color: var(--muted); font-weight: 400; }
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.notice { background: #fdecee; color: #b00012; border-radius: 12px; padding: 12px 14px; margin: 0 0 18px; }
+.error { color: #b00012; margin: 16px 0 0; }
+.support button { margin-top: 20px; width: 100%; font: inherit; font-weight: 600; font-size: 17px; color: #fff; background: var(--navy); border: 0; border-radius: 999px; padding: 14px 20px; cursor: pointer; }
+.support button:disabled { opacity: 0.6; cursor: default; }
+.fine { color: var(--muted); font-size: 14px; text-align: center; }
+.sent { text-align: center; padding: 40px 0; }
+.sent .tick { width: 64px; height: 64px; line-height: 64px; margin: 0 auto 16px; border-radius: 50%; background: #eaf6ec; color: #248a3d; font-size: 30px; }
+.sent h2 { color: var(--navy); font-size: 28px; margin: 0 0 8px; }
