@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["X5QH7BKPR9.my.courtsy.app"],
+        "components": [
+          { "/": "/s", "comment": "A shared session" },
+          { "/": "/s/*", "comment": "A shared session" }
+        ]
+      }
+    ]
+  }
+}

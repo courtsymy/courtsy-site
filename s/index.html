@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>You’re invited to play · Courtsy</title>
+  <meta name="description" content="Someone shared a tennis session with you on Courtsy. Open it in the app to see the court, the time and book it.">
+  <meta property="og:title" content="You’re invited to play tennis">
+  <meta property="og:description" content="Open this session in Courtsy to see the court, the time and book it.">
+  <meta property="og:image" content="https://courtsy.my/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="noindex">
+  <meta name="apple-itunes-app" content="app-id=6818940679">
+  <link rel="icon" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .share { padding: 48px 0 64px; max-width: 460px; }
+    .share h1 { font-size: 34px; line-height: 1.12; letter-spacing: -0.03em; margin: 0 0 12px; color: var(--navy); }
+    .share p { color: var(--muted); margin: 0 0 28px; }
+    .btn { display: block; text-align: center; text-decoration: none; font-weight: 700; border-radius: 999px; padding: 15px 22px; margin: 0 0 12px; }
+    .btn.primary { background: var(--navy); color: #fff; }
+    .btn.secondary { background: #fff; color: var(--ink); border: 1.5px solid var(--line); }
+    .steps { background: #fff; border-radius: 20px; padding: 18px 22px; margin-top: 28px; font-size: 15.5px; color: var(--muted); }
+    .steps strong { color: var(--ink); }
+    .steps ol { margin: 8px 0 0; padding-left: 20px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header><a class="brand" href="/"><img src="../wordmark.png" alt="Courtsy"></a></header>
+
+    <section class="share">
+      <h1>You’re invited to play tennis</h1>
+      <p>Someone shared a session on a condo court with you. Open it in Courtsy to see where and when, and book it.</p>
+
+      <a class="btn primary" id="open" href="courtsy://">Open in Courtsy</a>
+      <a class="btn secondary" href="https://apps.apple.com/app/id6818940679">Get Courtsy on the App Store</a>
+
+      <div class="steps">
+        <strong>Don’t have the app yet?</strong>
+        <ol>
+          <li>Download Courtsy from the App Store and sign up.</li>
+          <li>Come back and tap the link you were sent. It opens straight to the session.</li>
+        </ol>
+      </div>
+    </section>
+
+    <footer>
+      <nav>
+        <a href="../support.html">Help &amp; support</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+      </nav>
+      Courtsy · Kuala Lumpur, Malaysia
+    </footer>
+  </div>
+  <script>
+    // The session's ID rides along in the link (?id=…). With the app installed,
+    // iPhones open the app instead of this page; this page is the fallback.
+    (function () {
+      var id = new URLSearchParams(location.search).get("id") || "";
+      if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id)) return;
+      document.getElementById("open").href = "courtsy://session/" + id;
+      var banner = document.querySelector('meta[name="apple-itunes-app"]');
+      if (banner) banner.content = "app-id=6818940679, app-argument=" + location.href;
+    })();
+  </script>
+</body>
+</html>
